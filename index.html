@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPX Soft | Document Intelligence for the Borderplex</title>
+  <meta name="description" content="BPX Soft turns your filing cabinets into a private AI assistant. El Paso, TX and Ciudad Juárez, MX. Launching soon. / Convertimos sus archivos en un asistente de inteligencia artificial. Próximamente.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230f2a44'/><text x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23e8893a' text-anchor='middle'>BPX</text></svg>">
+  <style>
+    :root {
+      --navy: #0f2a44;
+      --navy-2: #163a5c;
+      --sand: #f6efe6;
+      --sun: #e8893a;
+      --ink: #1d2733;
+      --muted: #5c6b7a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--sand);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 0.5px; }
+    .logo span { color: var(--sun); }
+    .lang { display: flex; gap: 4px; }
+    .lang button {
+      background: transparent; color: #cfd8e3; border: 1px solid #3b5878;
+      padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+    }
+    .lang button.active { background: var(--sun); color: var(--navy); border-color: var(--sun); font-weight: 700; }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      background:
+        linear-gradient(180deg, var(--navy) 0, var(--navy-2) 55%, var(--sand) 55%);
+    }
+    .card {
+      background: #fff;
+      max-width: 680px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 10px 40px rgba(15, 42, 68, 0.18);
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: #fdeedd;
+      color: #a55312;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.2; color: var(--navy); margin-bottom: 16px; }
+    p.lead { font-size: 1.1rem; line-height: 1.6; color: var(--muted); margin-bottom: 32px; }
+    .cta {
+      display: inline-block;
+      background: var(--sun);
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .cta:hover { filter: brightness(1.05); }
+    .places {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #ebe3d8;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .places strong { color: var(--navy); display: block; }
+    footer { text-align: center; padding: 20px; color: var(--muted); font-size: 0.85rem; }
+    html[lang="en"] [data-lang="es"], html[lang="es"] [data-lang="en"] { display: none !important; }
+    .places span { display: block; }
+    @media (max-width: 520px) { .card { padding: 36px 22px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BPX <span>Soft</span></div>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+      <button id="btn-es" onclick="setLang('es')">ES</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="badge" data-lang="en">Launching soon</div>
+      <div class="badge" data-lang="es">Muy pronto</div>
+
+      <h1 data-lang="en">Your filing cabinets have the answers. Soon you'll be able to ask them.</h1>
+      <h1 data-lang="es">Sus archivos tienen las respuestas. Muy pronto podrá preguntarles.</h1>
+
+      <p class="lead" data-lang="en">BPX Soft turns your paper records into a private AI assistant your team can ask in plain English or Spanish, with the source page on every answer. Built in El Paso and Juárez for the Borderplex.</p>
+      <p class="lead" data-lang="es">BPX Soft convierte sus documentos en papel en un asistente privado de inteligencia artificial. Su equipo pregunta en español o inglés y recibe la respuesta con la página de origen. Hecho en El Paso y Juárez para la región fronteriza.</p>
+
+      <a class="cta" href="mailto:juan@bpxsoft.com?subject=BPX%20Soft%20inquiry" data-lang="en">Talk to us: juan@bpxsoft.com</a>
+      <a class="cta" href="mailto:juan@bpxsoft.com?subject=Consulta%20BPX%20Soft" data-lang="es">Escríbanos: juan@bpxsoft.com</a>
+
+      <div class="places">
+        <div><strong>El Paso, TX</strong><span data-lang="en">Office</span><span data-lang="es">Oficina</span></div>
+        <div><strong>Ciudad Juárez, MX</strong><span data-lang="en">Development team</span><span data-lang="es">Equipo de desarrollo</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; <span id="year"></span> BPX Soft</footer>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    }
+    var start = (navigator.language || 'en').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+    setLang(start);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
