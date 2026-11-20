@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BPX Soft | Nearshore Software Development in El Paso and Juárez</title>
-  <meta name="description" content="BPX Soft is a nearshore software team in El Paso, TX and Ciudad Juárez, MX. Custom software, dedicated teams, and AI solutions for companies with a growing backlog. / Desarrollo de software a la medida en El Paso y Ciudad Juárez.">
+  <title>BPX Soft | Software Engineering &amp; Consulting in the Borderplex</title>
+  <meta name="description" content="BPX Soft is a software engineering and consulting firm headquartered in Ciudad Juárez, serving the Borderplex. Senior .NET full-stack development, databases and integration, cloud and DevOps, and technical leadership. / Ingeniería y consultoría de software en Ciudad Juárez.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%20width%3D%2264%22%20height%3D%2264%22%20role%3D%22img%22%20aria-label%3D%22BPX%20Soft%20favicon%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230B2D5B%22/%3E%3Cg%20transform%3D%22translate%283.24%2015.40%29%20scale%280.62%29%22%3E%3Cpath%20d%3D%22M18%2054A42%2042%200%200%201%2074%2014A260%20260%200%200%200%2018%2054Z%22%20fill%3D%22%23FFFFFF%22/%3E%3Cpath%20d%3D%22M60%205A32%2032%200%200%201%2095%2044A50%2050%200%200%200%2060%205Z%22%20fill%3D%22%23F57C00%22/%3E%3Crect%20x%3D%222%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%2211%22%20fill%3D%22%2319B8D5%22/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,185 +12,378 @@
   <style>
     :root {
       --navy: #0B2D5B;
-      --navy-2: #0e3a72;--blue: #0078D4;--cyan: #19B8D5;
-      --sand: #f3f6fa;
-      --sun: #F57C00;
+      --navy-2: #0e3a72;
+      --blue: #0078D4;
+      --blue-ink: #005a9e;
+      --cyan: #19B8D5;
+      --orange: #F57C00;
+      --bg: #f3f6fa;
       --ink: #1d2733;
-      --muted: #5c6b7a;
+      --muted: #55667a;
+      --line: #e1e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--ink);
-      background: var(--sand);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: #fff;
+      line-height: 1.6;
     }
+    h1, h2, h3 { font-family: Montserrat, system-ui, sans-serif; color: var(--navy); line-height: 1.2; }
+    a { color: var(--blue-ink); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    html[lang="en"] [data-lang="es"], html[lang="es"] [data-lang="en"] { display: none !important; }
+
+    /* Header */
     header {
       background: var(--navy);
-      color: #fff;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
     .logo { display: block; line-height: 0; }
-    .logo-svg { height: 40px; width: auto; }
+    .logo-svg { height: 38px; width: auto; }
+    nav { display: flex; align-items: center; gap: 22px; }
+    nav a.link { color: #d5e0ec; text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    nav a.link:hover { color: #fff; }
     .lang { display: flex; gap: 4px; }
     .lang button {
       background: transparent; color: #cfd8e3; border: 1px solid #3b5878;
-      padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+      padding: 6px 11px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;
     }
-    .lang button.active { background: var(--sun); color: var(--navy); border-color: var(--sun); font-weight: 700; }
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
-      background:
-        linear-gradient(180deg, var(--navy) 0, var(--navy-2) 55%, var(--sand) 55%);
+    .lang button.active { background: var(--orange); color: var(--navy); border-color: var(--orange); font-weight: 700; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700;
+      padding: 13px 24px; border-radius: 10px; font-size: 1rem;
     }
+    .btn-primary { background: var(--orange); color: var(--navy); }
+    .btn-primary:hover { filter: brightness(1.06); }
+    .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,0.45); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff; padding: 88px 0 96px;
+    }
+    .hero h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.1rem); max-width: 820px; letter-spacing: -0.5px; }
+    .hero p.lead { color: #c9d6e6; font-size: 1.15rem; max-width: 720px; margin: 22px 0 32px; }
+    .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero .trust { margin-top: 36px; color: #9fb4cc; font-size: 0.92rem; }
+    .hero .trust b { color: #fff; font-weight: 600; }
+
+    /* Sections */
+    section.block { padding: 80px 0; }
+    section.alt { background: var(--bg); }
+    .eyebrow { color: var(--blue-ink); font-weight: 700; font-size: 0.8rem; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 14px; }
+    .intro { color: var(--muted); font-size: 1.08rem; max-width: 760px; margin-bottom: 40px; }
+
+    .grid { display: grid; gap: 20px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
     .card {
-      background: #fff;
-      max-width: 680px;
-      width: 100%;
-      border-radius: 16px;
-      padding: 48px 40px;
-      box-shadow: 0 10px 40px rgba(15, 42, 68, 0.18);
-      text-align: center;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px;
     }
-    .badge {
-      display: inline-block;
-      background: #fff1e3;
-      color: #b45400;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
+    .card .icon {
+      width: 40px; height: 40px; border-radius: 10px; background: #e8f2fc; color: var(--blue);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
     }
-    h1 { font-family: Montserrat, system-ui, sans-serif; letter-spacing: -0.3px; font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.2; color: var(--navy); margin-bottom: 16px; }
-    p.lead { font-size: 1.1rem; line-height: 1.6; color: var(--muted); margin-bottom: 32px; }
-    .cta {
-      display: inline-block;
-      background: var(--sun);
-      color: var(--navy);
-      font-weight: 700;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-size: 1rem;
-      max-width: 100%;
-      overflow-wrap: anywhere;
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.98rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tags span { background: var(--bg); color: var(--navy); font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
+
+    .model { border-left: 4px solid var(--orange); }
+    .model .best { margin-top: 14px; font-size: 0.88rem; color: var(--navy); font-weight: 600; }
+
+    /* Why */
+    .why { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .why ul { list-style: none; display: grid; gap: 14px; }
+    .why li { display: flex; gap: 12px; font-size: 1.02rem; }
+    .why li::before {
+      content: ""; flex: 0 0 10px; height: 10px; margin-top: 9px; border-radius: 2px; background: var(--cyan);
     }
-    .cta:hover { filter: brightness(1.05); }
-    .places {
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px solid #e3e9f1;
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .places strong { color: var(--navy); display: block; }
-    footer { text-align: center; padding: 20px; color: var(--muted); font-size: 0.85rem; }
-    html[lang="en"] [data-lang="es"], html[lang="es"] [data-lang="en"] { display: none !important; }
-    .places span { display: block; }
-    p.lead { margin-bottom: 24px; }
-    .services {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-    .services li {
-      background: #e8f2fc;
-      color: #005a9e;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 8px 14px;
-      border-radius: 8px;
-    }
+    .industries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .industries span { background: #e8f2fc; color: var(--blue-ink); font-weight: 600; font-size: 0.9rem; padding: 7px 13px; border-radius: 8px; }
+
+    /* Stack */
+    .stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 40px; }
+    .stack div { padding: 16px 0; border-top: 1px solid var(--line); }
+    .stack b { display: block; color: var(--navy); margin-bottom: 4px; font-family: Montserrat, system-ui, sans-serif; }
+    .stack p { color: var(--muted); font-size: 0.97rem; }
+
+    /* Product teaser */
     .teaser {
-      margin-top: 32px;
-      padding: 20px 22px;
-      border: 1px solid #cfe3f6; border-left: 4px solid var(--cyan);
-      border-radius: 12px;
-      background: #f6fbff;
-      text-align: left;
+      display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      background: #f6fbff; border: 1px solid #cfe3f6; border-left: 5px solid var(--cyan);
+      border-radius: 14px; padding: 28px 32px;
     }
-    .teaser strong { color: var(--navy); font-size: 1.05rem; display: block; margin: 6px 0 4px; }
-    .teaser p { color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
-    .teaser-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #0a6e82;
+    .teaser .tag { color: #0a6e82; font-weight: 700; font-size: 0.75rem; letter-spacing: 1.2px; text-transform: uppercase; }
+    .teaser h3 { font-size: 1.3rem; margin: 4px 0 6px; }
+    .teaser p { color: var(--muted); max-width: 640px; }
+
+    /* Contact */
+    .contact { background: var(--navy); color: #fff; padding: 80px 0; }
+    .contact h2 { color: #fff; }
+    .contact .intro { color: #c9d6e6; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
+    .contact-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px 22px; }
+    .contact-item .k { color: var(--orange); font-weight: 700; font-size: 0.78rem; letter-spacing: 1.2px; text-transform: uppercase; }
+    .contact-item a, .contact-item span.v { color: #fff; text-decoration: none; font-size: 1.08rem; font-weight: 600; display: block; margin-top: 4px; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    footer { background: #07203f; color: #8ea5bf; font-size: 0.88rem; padding: 22px 0; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    @media (max-width: 900px) {
+      nav a.link { display: none; }
+      .grid-3, .contact-grid { grid-template-columns: 1fr; }
+      .grid-2, .why, .stack { grid-template-columns: 1fr; }
+      .why { gap: 28px; }
     }
-    @media (max-width: 520px) { .card { padding: 36px 22px; } .logo-svg { height: 32px; } }
+    @media (max-width: 520px) {
+      .logo-svg { height: 30px; }
+      .hero { padding: 56px 0 64px; }
+      section.block, .contact { padding: 56px 0; }
+      .card { padding: 22px; }
+      .btn { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a class="logo" href="/" aria-label="BPX Soft home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 64" class="logo-svg" role="img" aria-label="BPX Soft"><g transform="translate(0.00 1.92) scale(1.0027)"><path d="M18 54A42 42 0 0 1 74 14A260 260 0 0 0 18 54Z" fill="#FFFFFF"/><path d="M60 5A32 32 0 0 1 95 44A50 50 0 0 0 60 5Z" fill="#F57C00"/><rect x="7" y="44" width="8" height="8" fill="#FFFFFF"/><rect x="0" y="36" width="6" height="6" fill="#5AB0FF"/><rect x="0" y="50" width="5" height="5" fill="#19B8D5"/><rect x="10" y="33" width="4" height="4" fill="#5AB0FF"/></g><path d="M113.07617580750055 44.9V21.099999999999998H124.70484283546499Q129.18349707348798 21.099999999999998 131.45769206590074 22.799710708866243Q133.73188705831348 24.499421417732492 133.73188705831348 27.301484283546493Q133.73188705831348 29.165031432907 132.81094992412747 30.534999999999997Q131.89001278994147 31.904968567092993 130.28349067851724 32.65942141773249Q128.676968567093 33.41387426837199 126.60701864296553 33.41387426837199L127.24598721005853 32.00870431389551Q129.5005785822675 32.00870431389551 131.22610069369176 32.749672880988506Q132.951622805116 33.490641448081504 133.93352850639496 34.918352156947755Q134.91543420767397 36.346062865814005 134.91543420767397 38.3995471493605Q134.91543420767397 41.473031432907 132.50230208107524 43.1865157164535Q130.0891699544765 44.9 125.384842835465 44.9ZM118.54332126598743 40.76713158465207H124.992062865814Q127.11817580750053 40.76713158465207 128.23252156947757 40.05520084543681Q129.34686733145458 39.343270106221546 129.34686733145458 37.83031432907002Q129.34686733145458 36.31735855191849 128.23252156947757 35.595169954476475Q127.11817580750053 34.87298135703447 124.992062865814 34.87298135703447H118.14293128116194V30.861471493605023H124.02715716453501Q126.04366009104704 30.861471493605023 127.10349013657057 30.156282896163013Q128.16332018209408 29.451094298721003 128.16332018209408 28.047169954476477Q128.16332018209408 26.62976132668545 127.10349013657057 25.93131487101669Q126.04366009104704 25.232868415347927 124.02715716453501 25.232868415347927H118.54332126598743ZM138.74617580750052 44.9V21.099999999999998H149.03477996965097Q152.24368567092998 21.099999999999998 154.5618492304357 22.136710708866246Q156.88001278994145 23.17342141773249 158.1342077823542 25.11435855191849Q159.38840277476694 27.055295686104486 159.38840277476694 29.72723282029048Q159.38840277476694 32.378654238022975 158.1342077823542 34.312849230435724Q156.88001278994145 36.24704422284847 154.5618492304357 37.29049707348797Q152.24368567092998 38.33394992412747 149.03477996965097 38.33394992412747H141.80510708866245L144.2672584001734 35.86418859744201V44.9ZM144.2672584001734 36.460968567093 141.80510708866245 33.84875438976805H148.75045285063948Q151.27811294168652 33.84875438976805 152.54897442011705 32.76224506828528Q153.81983589854758 31.675735746802513 153.81983589854758 29.72723282029048Q153.81983589854758 27.75821417732495 152.54897442011705 26.671704855842183Q151.27811294168652 25.585195534359418 148.75045285063948 25.585195534359418H141.80510708866245L144.2672584001734 22.972981357034467ZM160.59179861261651 44.9 170.81 30.77353435941903 170.79651571645348 34.803824192499455 161.0208929113375 21.099999999999998H167.26127119011488L174.02486841534792 30.637534359419032L171.41381140255797 30.67153435941903L178.10295577715152 21.099999999999998H184.07191263819638L174.3373212659874 34.55937134185996V30.624628658140036L184.6434597875569 44.9H178.29462865814003L171.28484283546499 34.81085562540646L173.80093128116192 34.79737134185996L166.90662974203337 44.9Z" fill="#FFFFFF"/><path d="M202.80517190548449 45.23677541729894Q200.02039648818555 45.23677541729894 197.46922458270106 44.438361370041186Q194.91805267721656 43.639947322783435 193.41208779536092 42.37432625189681L194.95996488185563 38.953814220680684Q196.39353327552567 40.08783177975287 198.4993350314329 40.83084933882506Q200.60513678734011 41.57386689789725 202.8139648818556 41.57386689789725Q204.6804491654021 41.57386689789725 205.83190711034032 41.169237047474525Q206.98336505527854 40.76460719705181 207.52619314979404 40.06115803164968Q208.06902124430954 39.35770886624756 208.06902124430954 38.47605267721656Q208.06902124430954 37.385999999999996 207.29581422068065 36.73076663776284Q206.5226071970518 36.075533275525686 205.2755984175157 35.6725157164535Q204.02858963797962 35.269498157381314 202.51617559072187 34.93609288965966Q201.00376154346412 34.602687621938 199.48914925211358 34.14148937784522Q197.97453696076306 33.68029113375243 196.72752818122694 32.942696401474095Q195.48051940169086 32.20510166919575 194.707312378062 30.989308692824622Q193.93410535443311 29.773515716453495 193.93410535443311 27.8695157164535Q193.93410535443311 25.925947322783436 194.96788077173204 24.3141719054845Q196.001656189031 22.70239648818556 198.12621580316497 21.73281053544331Q200.25077541729894 20.76322458270106 203.5083262518968 20.76322458270106Q205.65589464556686 20.76322458270106 207.76506655105135 21.302828094515498Q209.87423845653586 21.84243160632993 211.4482033383915 22.866828094515494L210.04072274008237 26.3125471493605Q208.450343810969 25.339736613917186 206.75693854324734 24.882934858009968Q205.06353327552569 24.426133102102753 203.46992976371124 24.426133102102753Q201.66265250379362 24.426133102102753 200.5089963147626 24.866961196618252Q199.35534012573163 25.30778929113375 198.82951203121613 26.032634944721437Q198.30368393670062 26.757480598309126 198.30368393670062 27.66874029915456Q198.30368393670062 28.75439648818556 199.07689096032948 29.407431606329936Q199.85009798395836 30.06046672447431 201.09710676349448 30.446484283546496Q202.34411554303057 30.832501842618683 203.8587278343811 31.17851062215478Q205.37334012573163 31.524519401690874 206.88575417298938 31.970915889876434Q208.39816822024713 32.41731237806199 209.64517699978322 33.14010535443312Q210.8921857793193 33.86289833080424 211.6653928029482 35.07649306308259Q212.43859982657705 36.29008779536093 212.43859982657705 38.16008779536094Q212.43859982657705 40.069656189031 211.3900226533709 41.68143160632994Q210.34144548016474 43.293207023628874 208.20428235421633 44.264991220463905Q206.06711922826793 45.23677541729894 202.80517190548449 45.23677541729894ZM224.23953327552567 45.12158595274225Q221.44573695490416 45.12158595274225 219.25988603652428 43.92499122046391Q217.07403511814437 42.72839648818556 215.81325092130933 40.62085460925645Q214.5524667244743 38.513312730327335 214.5524667244743 35.81582161825276Q214.5524667244743 33.08763862995881 215.8187912433528 30.999162056192798Q217.0851157622313 28.910685482426786 219.25894558976512 27.717576103450547Q221.43277541729893 26.52446672447431 224.23953327552567 26.52446672447431Q227.04629113375242 26.52446672447431 229.23877478876187 27.715656897582047Q231.43125844377136 28.906847070689786 232.6789291351742 30.991972195401846Q233.92659982657705 33.07709732011391 233.92659982657705 35.816172349333996Q233.92659982657705 38.52441404725775 232.682815629742 40.62640526772165Q231.43903143290697 42.72839648818556 229.2354991433746 43.92499122046391Q227.03196685384222 45.12158595274225 224.23953327552567 45.12158595274225ZM224.23953327552567 41.50586689789724Q225.80001755907216 41.50586689789724 227.01288077173206 40.81663353566009Q228.22574398439193 40.127400173422934 228.92977910253632 38.83554574029915Q229.63381422068068 37.54369130717537 229.63381422068068 35.81710177834305Q229.63381422068068 34.063964881855625 228.92977910253632 32.79130869282463Q228.22574398439193 31.518652503793625 227.01288077173206 30.82941914155647Q225.80001755907216 30.140185779319314 224.2543350314329 30.140185779319314Q222.70865250379362 30.140185779319314 221.49578929113375 30.82941914155647Q220.28292607847385 31.518652503793625 219.56408920442226 32.79130869282463Q218.84525233037067 34.063964881855625 218.84525233037067 35.81710177834305Q218.84525233037067 37.54369130717537 219.56408920442226 38.83554574029915Q220.28292607847385 40.127400173422934 221.49369963147623 40.81663353566009Q222.70447318447862 41.50586689789724 224.23953327552567 41.50586689789724ZM238.2152948189898 44.9V25.739824409278125Q238.2152948189898 22.87591220463906 239.9006386299588 21.1631631259484Q241.5859824409278 19.450414047257745 244.73508411012355 19.450414047257745Q245.8406700628658 19.450414047257745 246.8448419683503 19.686215803164963Q247.8490138738348 19.922017559072184 248.5509963147626 20.427621070886623L247.36627357468024 23.604564708432687Q246.90346303923693 23.256943637546062 246.29864372425752 23.061736613917187Q245.6938244092781 22.866529590288312 245.04020333839148 22.866529590288312Q243.72094363754604 22.866529590288312 243.03332256665942 23.598555928896594Q242.3457014957728 24.330582267504873 242.3457014957728 25.778220897463687V27.846361370041183L242.46528744851506 29.735410362020374V44.9ZM235.25084565358767 30.267683936700628V26.877947322783434H247.3390138738348V30.267683936700628ZM256.6822735746802 45.12158595274225Q253.69877541729892 45.12158595274225 252.06003511814436 43.579422826793845Q250.4212948189898 42.03725970084543 250.4212948189898 39.024158031649684V22.741673748103185H254.67128744851505V38.92655451983525Q254.67128744851505 40.220607197051805 255.3375120312161 40.93343529156731Q256.00373661391717 41.64626338608281 257.21659982657707 41.64626338608281Q258.6170489919792 41.64626338608281 259.57227357468025 40.89943529156731L260.78659982657706 43.92836137004119Q260.0210138738348 44.5271719054845 258.928031432907 44.82437892911338Q257.8350489919792 45.12158595274225 256.6822735746802 45.12158595274225ZM247.45684565358766 30.135789291133747V26.746052677216557H259.54501387383476V30.135789291133747Z" fill="#5AB0FF"/></svg></a>
-    <div class="lang" role="group" aria-label="Language / Idioma">
-      <button id="btn-en" onclick="setLang('en')">EN</button>
-      <button id="btn-es" onclick="setLang('es')">ES</button>
+    <div class="wrap bar">
+      <a class="logo" href="#top" aria-label="BPX Soft home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 64" class="logo-svg" role="img" aria-label="BPX Soft"><g transform="translate(0.00 1.92) scale(1.0027)"><path d="M18 54A42 42 0 0 1 74 14A260 260 0 0 0 18 54Z" fill="#FFFFFF"/><path d="M60 5A32 32 0 0 1 95 44A50 50 0 0 0 60 5Z" fill="#F57C00"/><rect x="7" y="44" width="8" height="8" fill="#FFFFFF"/><rect x="0" y="36" width="6" height="6" fill="#5AB0FF"/><rect x="0" y="50" width="5" height="5" fill="#19B8D5"/><rect x="10" y="33" width="4" height="4" fill="#5AB0FF"/></g><path d="M113.07617580750055 44.9V21.099999999999998H124.70484283546499Q129.18349707348798 21.099999999999998 131.45769206590074 22.799710708866243Q133.73188705831348 24.499421417732492 133.73188705831348 27.301484283546493Q133.73188705831348 29.165031432907 132.81094992412747 30.534999999999997Q131.89001278994147 31.904968567092993 130.28349067851724 32.65942141773249Q128.676968567093 33.41387426837199 126.60701864296553 33.41387426837199L127.24598721005853 32.00870431389551Q129.5005785822675 32.00870431389551 131.22610069369176 32.749672880988506Q132.951622805116 33.490641448081504 133.93352850639496 34.918352156947755Q134.91543420767397 36.346062865814005 134.91543420767397 38.3995471493605Q134.91543420767397 41.473031432907 132.50230208107524 43.1865157164535Q130.0891699544765 44.9 125.384842835465 44.9ZM118.54332126598743 40.76713158465207H124.992062865814Q127.11817580750053 40.76713158465207 128.23252156947757 40.05520084543681Q129.34686733145458 39.343270106221546 129.34686733145458 37.83031432907002Q129.34686733145458 36.31735855191849 128.23252156947757 35.595169954476475Q127.11817580750053 34.87298135703447 124.992062865814 34.87298135703447H118.14293128116194V30.861471493605023H124.02715716453501Q126.04366009104704 30.861471493605023 127.10349013657057 30.156282896163013Q128.16332018209408 29.451094298721003 128.16332018209408 28.047169954476477Q128.16332018209408 26.62976132668545 127.10349013657057 25.93131487101669Q126.04366009104704 25.232868415347927 124.02715716453501 25.232868415347927H118.54332126598743ZM138.74617580750052 44.9V21.099999999999998H149.03477996965097Q152.24368567092998 21.099999999999998 154.5618492304357 22.136710708866246Q156.88001278994145 23.17342141773249 158.1342077823542 25.11435855191849Q159.38840277476694 27.055295686104486 159.38840277476694 29.72723282029048Q159.38840277476694 32.378654238022975 158.1342077823542 34.312849230435724Q156.88001278994145 36.24704422284847 154.5618492304357 37.29049707348797Q152.24368567092998 38.33394992412747 149.03477996965097 38.33394992412747H141.80510708866245L144.2672584001734 35.86418859744201V44.9ZM144.2672584001734 36.460968567093 141.80510708866245 33.84875438976805H148.75045285063948Q151.27811294168652 33.84875438976805 152.54897442011705 32.76224506828528Q153.81983589854758 31.675735746802513 153.81983589854758 29.72723282029048Q153.81983589854758 27.75821417732495 152.54897442011705 26.671704855842183Q151.27811294168652 25.585195534359418 148.75045285063948 25.585195534359418H141.80510708866245L144.2672584001734 22.972981357034467ZM160.59179861261651 44.9 170.81 30.77353435941903 170.79651571645348 34.803824192499455 161.0208929113375 21.099999999999998H167.26127119011488L174.02486841534792 30.637534359419032L171.41381140255797 30.67153435941903L178.10295577715152 21.099999999999998H184.07191263819638L174.3373212659874 34.55937134185996V30.624628658140036L184.6434597875569 44.9H178.29462865814003L171.28484283546499 34.81085562540646L173.80093128116192 34.79737134185996L166.90662974203337 44.9Z" fill="#FFFFFF"/><path d="M202.80517190548449 45.23677541729894Q200.02039648818555 45.23677541729894 197.46922458270106 44.438361370041186Q194.91805267721656 43.639947322783435 193.41208779536092 42.37432625189681L194.95996488185563 38.953814220680684Q196.39353327552567 40.08783177975287 198.4993350314329 40.83084933882506Q200.60513678734011 41.57386689789725 202.8139648818556 41.57386689789725Q204.6804491654021 41.57386689789725 205.83190711034032 41.169237047474525Q206.98336505527854 40.76460719705181 207.52619314979404 40.06115803164968Q208.06902124430954 39.35770886624756 208.06902124430954 38.47605267721656Q208.06902124430954 37.385999999999996 207.29581422068065 36.73076663776284Q206.5226071970518 36.075533275525686 205.2755984175157 35.6725157164535Q204.02858963797962 35.269498157381314 202.51617559072187 34.93609288965966Q201.00376154346412 34.602687621938 199.48914925211358 34.14148937784522Q197.97453696076306 33.68029113375243 196.72752818122694 32.942696401474095Q195.48051940169086 32.20510166919575 194.707312378062 30.989308692824622Q193.93410535443311 29.773515716453495 193.93410535443311 27.8695157164535Q193.93410535443311 25.925947322783436 194.96788077173204 24.3141719054845Q196.001656189031 22.70239648818556 198.12621580316497 21.73281053544331Q200.25077541729894 20.76322458270106 203.5083262518968 20.76322458270106Q205.65589464556686 20.76322458270106 207.76506655105135 21.302828094515498Q209.87423845653586 21.84243160632993 211.4482033383915 22.866828094515494L210.04072274008237 26.3125471493605Q208.450343810969 25.339736613917186 206.75693854324734 24.882934858009968Q205.06353327552569 24.426133102102753 203.46992976371124 24.426133102102753Q201.66265250379362 24.426133102102753 200.5089963147626 24.866961196618252Q199.35534012573163 25.30778929113375 198.82951203121613 26.032634944721437Q198.30368393670062 26.757480598309126 198.30368393670062 27.66874029915456Q198.30368393670062 28.75439648818556 199.07689096032948 29.407431606329936Q199.85009798395836 30.06046672447431 201.09710676349448 30.446484283546496Q202.34411554303057 30.832501842618683 203.8587278343811 31.17851062215478Q205.37334012573163 31.524519401690874 206.88575417298938 31.970915889876434Q208.39816822024713 32.41731237806199 209.64517699978322 33.14010535443312Q210.8921857793193 33.86289833080424 211.6653928029482 35.07649306308259Q212.43859982657705 36.29008779536093 212.43859982657705 38.16008779536094Q212.43859982657705 40.069656189031 211.3900226533709 41.68143160632994Q210.34144548016474 43.293207023628874 208.20428235421633 44.264991220463905Q206.06711922826793 45.23677541729894 202.80517190548449 45.23677541729894ZM224.23953327552567 45.12158595274225Q221.44573695490416 45.12158595274225 219.25988603652428 43.92499122046391Q217.07403511814437 42.72839648818556 215.81325092130933 40.62085460925645Q214.5524667244743 38.513312730327335 214.5524667244743 35.81582161825276Q214.5524667244743 33.08763862995881 215.8187912433528 30.999162056192798Q217.0851157622313 28.910685482426786 219.25894558976512 27.717576103450547Q221.43277541729893 26.52446672447431 224.23953327552567 26.52446672447431Q227.04629113375242 26.52446672447431 229.23877478876187 27.715656897582047Q231.43125844377136 28.906847070689786 232.6789291351742 30.991972195401846Q233.92659982657705 33.07709732011391 233.92659982657705 35.816172349333996Q233.92659982657705 38.52441404725775 232.682815629742 40.62640526772165Q231.43903143290697 42.72839648818556 229.2354991433746 43.92499122046391Q227.03196685384222 45.12158595274225 224.23953327552567 45.12158595274225ZM224.23953327552567 41.50586689789724Q225.80001755907216 41.50586689789724 227.01288077173206 40.81663353566009Q228.22574398439193 40.127400173422934 228.92977910253632 38.83554574029915Q229.63381422068068 37.54369130717537 229.63381422068068 35.81710177834305Q229.63381422068068 34.063964881855625 228.92977910253632 32.79130869282463Q228.22574398439193 31.518652503793625 227.01288077173206 30.82941914155647Q225.80001755907216 30.140185779319314 224.2543350314329 30.140185779319314Q222.70865250379362 30.140185779319314 221.49578929113375 30.82941914155647Q220.28292607847385 31.518652503793625 219.56408920442226 32.79130869282463Q218.84525233037067 34.063964881855625 218.84525233037067 35.81710177834305Q218.84525233037067 37.54369130717537 219.56408920442226 38.83554574029915Q220.28292607847385 40.127400173422934 221.49369963147623 40.81663353566009Q222.70447318447862 41.50586689789724 224.23953327552567 41.50586689789724ZM238.2152948189898 44.9V25.739824409278125Q238.2152948189898 22.87591220463906 239.9006386299588 21.1631631259484Q241.5859824409278 19.450414047257745 244.73508411012355 19.450414047257745Q245.8406700628658 19.450414047257745 246.8448419683503 19.686215803164963Q247.8490138738348 19.922017559072184 248.5509963147626 20.427621070886623L247.36627357468024 23.604564708432687Q246.90346303923693 23.256943637546062 246.29864372425752 23.061736613917187Q245.6938244092781 22.866529590288312 245.04020333839148 22.866529590288312Q243.72094363754604 22.866529590288312 243.03332256665942 23.598555928896594Q242.3457014957728 24.330582267504873 242.3457014957728 25.778220897463687V27.846361370041183L242.46528744851506 29.735410362020374V44.9ZM235.25084565358767 30.267683936700628V26.877947322783434H247.3390138738348V30.267683936700628ZM256.6822735746802 45.12158595274225Q253.69877541729892 45.12158595274225 252.06003511814436 43.579422826793845Q250.4212948189898 42.03725970084543 250.4212948189898 39.024158031649684V22.741673748103185H254.67128744851505V38.92655451983525Q254.67128744851505 40.220607197051805 255.3375120312161 40.93343529156731Q256.00373661391717 41.64626338608281 257.21659982657707 41.64626338608281Q258.6170489919792 41.64626338608281 259.57227357468025 40.89943529156731L260.78659982657706 43.92836137004119Q260.0210138738348 44.5271719054845 258.928031432907 44.82437892911338Q257.8350489919792 45.12158595274225 256.6822735746802 45.12158595274225ZM247.45684565358766 30.135789291133747V26.746052677216557H259.54501387383476V30.135789291133747Z" fill="#5AB0FF"/></svg></a>
+      <nav>
+        <a class="link" href="#services" data-lang="en">Services</a><a class="link" href="#services" data-lang="es">Servicios</a>
+        <a class="link" href="#models" data-lang="en">How we work</a><a class="link" href="#models" data-lang="es">Esquemas</a>
+        <a class="link" href="#why" data-lang="en">Why BPX</a><a class="link" href="#why" data-lang="es">Por qué BPX</a>
+        <a class="link" href="#contact" data-lang="en">Contact</a><a class="link" href="#contact" data-lang="es">Contacto</a>
+        <div class="lang" role="group" aria-label="Language / Idioma">
+          <button id="btn-en" onclick="setLang('en')">EN</button>
+          <button id="btn-es" onclick="setLang('es')">ES</button>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <div class="card">
-      <div class="badge" data-lang="en">Launching soon</div>
-      <div class="badge" data-lang="es">Muy pronto</div>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <h1 data-lang="en">More work than engineers? We bring the brains and the hands.</h1>
+        <h1 data-lang="es">¿Más trabajo que ingenieros? Nosotros ponemos el talento y las manos.</h1>
 
-      <h1 data-lang="en">More work than engineers? We bring the brains and the hands.</h1>
-      <h1 data-lang="es">¿Más trabajo que ingenieros? Nosotros ponemos el talento y las manos.</h1>
+        <p class="lead" data-lang="en">BPX Soft delivers senior-level full-stack development, database architecture, and technical leadership to companies on both sides of the border that need immediate execution, without the hiring delays or fixed overhead of a full-time employee.</p>
+        <p class="lead" data-lang="es">BPX Soft ofrece desarrollo full-stack de nivel senior, arquitectura de bases de datos y liderazgo técnico a empresas en ambos lados de la frontera que necesitan resultados inmediatos, sin los tiempos de reclutamiento ni el costo fijo de un empleado de planta.</p>
 
-      <p class="lead" data-lang="en">BPX Soft is a nearshore software team in El Paso and Ciudad Juárez. We design, build, and modernize software for companies with a growing backlog, in your time zone, in English or Spanish.</p>
-      <p class="lead" data-lang="es">BPX Soft es un equipo de desarrollo de software en El Paso y Ciudad Juárez. Diseñamos, construimos y modernizamos software para empresas con trabajo acumulado, en su zona horaria, en español o inglés.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact" data-lang="en">Let's discuss your project</a>
+          <a class="btn btn-primary" href="#contact" data-lang="es">Hablemos de tu proyecto</a>
+          <a class="btn btn-ghost" href="#services" data-lang="en">See our services</a>
+          <a class="btn btn-ghost" href="#services" data-lang="es">Ver servicios</a>
+        </div>
 
-      <ul class="services" data-lang="en">
-        <li>Custom software</li>
-        <li>Dedicated nearshore teams</li>
-        <li>AI solutions</li>
-      </ul>
-      <ul class="services" data-lang="es">
-        <li>Software a la medida</li>
-        <li>Equipos dedicados</li>
-        <li>Soluciones con IA</li>
-      </ul>
-
-      <a class="cta" href="mailto:juan@bpxsoft.com?subject=BPX%20Soft%20inquiry" data-lang="en">Talk to us: juan@bpxsoft.com</a>
-      <a class="cta" href="mailto:juan@bpxsoft.com?subject=Consulta%20BPX%20Soft" data-lang="es">Escríbanos: juan@bpxsoft.com</a>
-
-      <div class="teaser">
-        <div class="teaser-tag" data-lang="en">Coming soon</div>
-        <div class="teaser-tag" data-lang="es">Próximamente</div>
-        <strong>BPX DocuQuery</strong>
-        <p data-lang="en">Ask your documents questions in plain English or Spanish and get answers with the source page attached.</p>
-        <p data-lang="es">Pregúntele a sus documentos en español o inglés y reciba respuestas con la página de origen.</p>
+        <p class="trust" data-lang="en"><b>20+ years</b> in .NET, SQL Server &amp; enterprise systems · <b>Headquartered in Cd. Juárez</b>, serving the Borderplex · English and Spanish</p>
+        <p class="trust" data-lang="es"><b>Más de 20 años</b> en .NET, SQL Server y sistemas empresariales · <b>Sede en Cd. Juárez</b>, cobertura Borderplex · Español e inglés</p>
       </div>
+    </section>
 
-      <div class="places">
-        <div><span data-lang="en">Based in</span><span data-lang="es">Con base en</span><strong>El Paso, TX</strong></div>
-        <div><span data-lang="en">Development team in</span><span data-lang="es">Equipo de desarrollo en</span><strong>Ciudad Juárez, MX</strong></div>
+    <!-- SERVICES -->
+    <section class="block" id="services">
+      <div class="wrap">
+        <div class="eyebrow" data-lang="en">Consulting services</div>
+        <div class="eyebrow" data-lang="es">Servicios de consultoría</div>
+        <h2 data-lang="en">What we do</h2>
+        <h2 data-lang="es">Lo que hacemos</h2>
+        <p class="intro" data-lang="en">Senior engineering across the full stack, from the database to the browser, with the discipline of 20+ years in warehousing and logistics, manufacturing, automotive design, and healthcare.</p>
+        <p class="intro" data-lang="es">Ingeniería senior en todo el stack, de la base de datos al navegador, con la disciplina de más de 20 años en almacenamiento y logística, manufactura, diseño automotriz y salud.</p>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3 data-lang="en">Full-Stack .NET &amp; Frontend Development</h3>
+            <h3 data-lang="es">Desarrollo Full-Stack .NET y Frontend</h3>
+            <p data-lang="en">New applications and modernization of existing ones, including Web Forms and VB.NET systems moved to modern .NET and Angular.</p>
+            <p data-lang="es">Aplicaciones nuevas y modernización de las existentes, incluyendo sistemas Web Forms y VB.NET migrados a .NET moderno y Angular.</p>
+            <div class="tags"><span>C#</span><span>ASP.NET Core / MVC</span><span>Blazor</span><span>EF Core</span><span>LINQ</span><span>Angular</span><span>TypeScript</span><span>jQuery</span></div>
+          </div>
+
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></div>
+            <h3 data-lang="en">Databases, Reporting &amp; Integration</h3>
+            <h3 data-lang="es">Bases de Datos, Reportes e Integración</h3>
+            <p data-lang="en">Database design and tuning, reports, REST services, and integrations with ERP and warehouse systems, plus Python automation.</p>
+            <p data-lang="es">Diseño y optimización de bases de datos, reportes, servicios REST e integración con ERP y sistemas de almacén, además de automatización con Python.</p>
+            <div class="tags"><span>SQL Server</span><span>T-SQL</span><span>SSRS</span><span>Oracle Pro*C</span><span>PostgreSQL</span><span>REST / OpenAPI</span><span>Python</span></div>
+          </div>
+
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+            <h3 data-lang="en">Architecture, Cloud &amp; DevOps</h3>
+            <h3 data-lang="es">Arquitectura, Nube y DevOps</h3>
+            <p data-lang="en">Distributed systems and high-throughput batch processing, deployed and automated on Azure with reliable CI/CD pipelines.</p>
+            <p data-lang="es">Sistemas distribuidos y procesamiento por lotes de alto volumen, desplegados y automatizados en Azure con pipelines CI/CD confiables.</p>
+            <div class="tags"><span>Azure App Service</span><span>Static Web Apps</span><span>Docker</span><span>IIS / Windows Server</span><span>Git</span><span>Azure DevOps</span></div>
+          </div>
+
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <h3 data-lang="en">Tech Lead &amp; Software Quality</h3>
+            <h3 data-lang="es">Tech Lead y Calidad de Software</h3>
+            <p data-lang="en">Architecture reviews, mentoring for in-house teams, Scrum delivery, automated testing, and AI-accelerated engineering validated under strict quality gates.</p>
+            <p data-lang="es">Revisiones de arquitectura, mentoría a equipos internos, entrega bajo Scrum, pruebas automatizadas e ingeniería acelerada con IA bajo estrictos controles de calidad.</p>
+            <div class="tags"><span>Architecture reviews</span><span>Scrum</span><span>xUnit</span><span>NUnit</span><span>MSTest</span></div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ENGAGEMENT MODELS -->
+    <section class="block alt" id="models">
+      <div class="wrap">
+        <div class="eyebrow" data-lang="en">Engagement models</div>
+        <div class="eyebrow" data-lang="es">Esquemas de colaboración</div>
+        <h2 data-lang="en">Work with us the way that fits</h2>
+        <h2 data-lang="es">Trabaja con nosotros como mejor te convenga</h2>
+        <p class="intro" data-lang="en">Scope and rates are tailored to your operational needs.</p>
+        <p class="intro" data-lang="es">Alcance y tarifas definidos según tus necesidades operativas.</p>
+
+        <div class="grid grid-3">
+          <div class="card model">
+            <h3 data-lang="en">Project-Based</h3>
+            <h3 data-lang="es">Por Proyecto</h3>
+            <p data-lang="en">Fixed scope, deliverables, and timeline defined upfront.</p>
+            <p data-lang="es">Alcance, entregables y tiempos definidos desde el inicio.</p>
+            <div class="best" data-lang="en">Best for: new builds, legacy migrations, targeted integrations</div>
+            <div class="best" data-lang="es">Ideal para: nuevos desarrollos, migraciones de sistemas legados, integraciones específicas</div>
+          </div>
+          <div class="card model">
+            <h3 data-lang="en">Monthly Retainer</h3>
+            <h3 data-lang="es">Iguala Mensual</h3>
+            <p data-lang="en">Dedicated monthly engineering capacity with priority response.</p>
+            <p data-lang="es">Capacidad de ingeniería dedicada con respuesta prioritaria.</p>
+            <div class="best" data-lang="en">Best for: teams needing ongoing support and continuous delivery</div>
+            <div class="best" data-lang="es">Ideal para: equipos que requieren soporte continuo y entregas constantes</div>
+          </div>
+          <div class="card model">
+            <h3 data-lang="en">Hourly Consulting</h3>
+            <h3 data-lang="es">Consultoría por Hora</h3>
+            <p data-lang="en">Flexible support with no long-term commitment.</p>
+            <p data-lang="es">Apoyo flexible sin compromiso a largo plazo.</p>
+            <div class="best" data-lang="en">Best for: diagnostics, performance tuning, burst capacity</div>
+            <div class="best" data-lang="es">Ideal para: diagnósticos, optimización de rendimiento, capacidad adicional</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="block" id="why">
+      <div class="wrap why">
+        <div>
+          <div class="eyebrow" data-lang="en">Why BPX Soft</div>
+          <div class="eyebrow" data-lang="es">Por qué BPX Soft</div>
+          <h2 data-lang="en">Senior engineering, close to home</h2>
+          <h2 data-lang="es">Ingeniería senior, cerca de ti</h2>
+          <p class="intro" data-lang="en" style="margin-bottom:0">We've built and maintained software where accuracy matters: claims processing, plant operations, warehouses, and vehicle design.</p>
+          <p class="intro" data-lang="es" style="margin-bottom:0">Hemos construido y mantenido software donde la precisión importa: procesamiento de reclamaciones, operaciones de planta, almacenes y diseño automotriz.</p>
+          <div class="industries" data-lang="en"><span>Warehousing &amp; logistics</span><span>Manufacturing</span><span>Automotive</span><span>Healthcare</span></div>
+          <div class="industries" data-lang="es"><span>Almacenamiento y logística</span><span>Manufactura</span><span>Automotriz</span><span>Salud</span></div>
+        </div>
+        <ul data-lang="en">
+          <li>20+ years in .NET, SQL Server &amp; enterprise systems</li>
+          <li>Borderplex coverage, headquartered in Cd. Juárez</li>
+          <li>Warehousing, manufacturing, automotive &amp; healthcare domain depth</li>
+          <li>Senior productivity from day one</li>
+          <li>Direct accountability with the principal engineer</li>
+        </ul>
+        <ul data-lang="es">
+          <li>Más de 20 años en .NET, SQL Server y sistemas empresariales</li>
+          <li>Cobertura Borderplex, con sede en Cd. Juárez</li>
+          <li>Experiencia en almacenamiento, manufactura, automotriz y salud</li>
+          <li>Productividad senior desde el primer día</li>
+          <li>Responsabilidad directa con el ingeniero principal</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="block alt" id="stack">
+      <div class="wrap">
+        <div class="eyebrow" data-lang="en">Tech stack</div>
+        <div class="eyebrow" data-lang="es">Stack tecnológico</div>
+        <h2 data-lang="en">Tools we use every day</h2>
+        <h2 data-lang="es">Herramientas que usamos a diario</h2>
+        <div class="stack" style="margin-top:28px">
+          <div><b data-lang="en">Backend &amp; Systems</b><b data-lang="es">Backend y Sistemas</b><p>C#, ASP.NET Core / MVC, Blazor, Entity Framework Core, LINQ, REST APIs / Swagger, C/C++, Python, Oracle Pro*C, PHP, Bash</p></div>
+          <div><b>Frontend</b><p>Angular, TypeScript, JavaScript, jQuery</p></div>
+          <div><b data-lang="en">Data &amp; BI</b><b data-lang="es">Datos y BI</b><p>SQL Server (T-SQL, Stored Procedures, Views), SSRS, Oracle, PostgreSQL, Power BI</p></div>
+          <div><b data-lang="en">Cloud, DevOps &amp; QA</b><b data-lang="es">Nube, DevOps y QA</b><p>Azure, Docker, IIS / Windows Server, Azure DevOps, CI/CD, Git, xUnit, NUnit, MSTest, Postman</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT TEASER -->
+    <section class="block">
+      <div class="wrap">
+        <div class="teaser">
+          <div>
+            <div class="tag" data-lang="en">Coming soon</div>
+            <div class="tag" data-lang="es">Próximamente</div>
+            <h3>BPX DocuQuery</h3>
+            <p data-lang="en">Ask your documents questions in plain English or Spanish and get answers with the source page attached. Built in-house to show what AI engineering looks like when it's done carefully.</p>
+            <p data-lang="es">Pregúntele a sus documentos en español o inglés y reciba respuestas con la página de origen. Desarrollado en casa para mostrar cómo se ve la ingeniería con IA hecha con cuidado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2 data-lang="en">Let's discuss your project.</h2>
+        <h2 data-lang="es">Hablemos de tu proyecto.</h2>
+        <p class="intro" data-lang="en">Available to start this week. Scope and rates are tailored directly to your operational needs.</p>
+        <p class="intro" data-lang="es">Disponibles para iniciar esta semana. Alcance y tarifas definidos directamente según tus necesidades operativas.</p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="k">Email</div>
+            <a href="mailto:juan@bpxsoft.com?subject=BPX%20Soft%20inquiry" data-lang="en">juan@bpxsoft.com</a>
+            <a href="mailto:juan@bpxsoft.com?subject=Consulta%20BPX%20Soft" data-lang="es">juan@bpxsoft.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="k" data-lang="en">Phone</div>
+            <div class="k" data-lang="es">Teléfono</div>
+            <a href="tel:+526565337856">+52 656 533 7856</a>
+          </div>
+          <div class="contact-item">
+            <div class="k" data-lang="en">Location</div>
+            <div class="k" data-lang="es">Ubicación</div>
+            <span class="v" data-lang="en">Cd. Juárez · Borderplex region</span>
+            <span class="v" data-lang="es">Cd. Juárez · Región Borderplex</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary" href="mailto:juan@bpxsoft.com?subject=BPX%20Soft%20inquiry" data-lang="en">Email us about your project</a>
+        <a class="btn btn-primary" href="mailto:juan@bpxsoft.com?subject=Consulta%20BPX%20Soft" data-lang="es">Escríbenos sobre tu proyecto</a>
+      </div>
+    </section>
   </main>
 
-  <footer>&copy; <span id="year"></span> BPX Soft</footer>
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="year"></span> BPX Soft · <span data-lang="en">HQ Cd. Juárez · Borderplex Region</span><span data-lang="es">Sede Cd. Juárez · Región Borderplex</span></span>
+      <span data-lang="en">Software Consulting · Custom Quotes on Request</span>
+      <span data-lang="es">Consultoría de Software · Cotizaciones a la medida</span>
+    </div>
+  </footer>
 
   <script>
     function setLang(lang) {
